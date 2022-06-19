@@ -46,6 +46,6 @@ the number of vertical paths in that tree.</span>
 <p>&nbsp;</p>
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
-1 &lt;= Number of nodes &lt;= 10<sup>5</sup></span></p>
+0 &lt;= Number of nodes &lt;= 10<sup>5</sup></span></p>
  <p></p>
             </div>
