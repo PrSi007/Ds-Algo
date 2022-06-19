@@ -86,25 +86,41 @@ int verticalWidth(Node* root);
 
 
  // } Driver Code Ends
+//User function Template for C++
 
-void helper(Node *root, int &min, int &max, int level){
-    if(!root)
-        return;
-    min = std::min(min, level);
-    max = std::max(max, level);
-    helper(root->left, min, max, level-1);
-    helper(root->right, min, max, level+1);
+/*Structure of node of binary tree is as follows
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+    
+    Node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+*/
+void findWidth(Node *root,int l,int r,int &m,int &n)
+{
+    if(root!=NULL)
+    {
+        m = min(l,m);
+        n = max(r,n);
+        findWidth(root->left,l-1,r-1,m,n);
+        findWidth(root->right,l+1,r+1,m,n);
+    }
 }
 
+//Function to find the vertical width of a Binary Tree.
 int verticalWidth(Node* root)
 {
-    if(!root)
-        return 0;
-    int min = INT_MAX, max = INT_MIN;
-    helper(root, min, max, 0);
-    return max-min+1;
+    if(root==NULL)
+        return 0;    
+    int m=0,n=0;
+    findWidth(root,0,0,m,n);
+    return abs(m-n)+1;
 }
-
 
 // { Driver Code Starts.
 
