@@ -106,29 +106,34 @@ struct Node
 // This function should return head to the DLL
 class Solution
 {
-    public: 
+    public:
+    Node *prev=NULL;
+    Node *head=NULL;
     
-    Node *prev = NULL;
-
+    void DLL(Node *root)
+    {
+        if(root==NULL)
+            return;
+        bToDLL(root->left);
+        if(prev==NULL)
+        {
+            head=root;
+            prev=root;
+        }
+        else
+        {
+            prev->right=root;
+            root->left=prev;
+        }
+        prev=root;
+        bToDLL(root->right);
+    }
+    
     //Function to convert binary tree to doubly linked list and return it.
     Node * bToDLL(Node *root)
     {
-        if(root==NULL)
-        return NULL;
-        
-        Node *head = bToDLL(root->left);
-        if(prev==NULL)
-            head = root;
-        else
-        {
-            root->left = prev;
-            prev->right = root;
-        }
-        
-        prev = root;
-        Node *temp = bToDLL(root->right);
+        DLL(root);
         return head;
-        
     }
 };
 
