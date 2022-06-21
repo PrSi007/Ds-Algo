@@ -36,6 +36,6 @@ Note: H is the height of the tree.</span></p>
 2 &lt;= Number of edges &lt;= 10<sup>4</sup><br>
 0 &lt;= Data of a node &lt;= 10<sup>5</sup></span></p>
 
-<p><strong>Note: </strong>The <strong>Input/Output</strong> format and <strong>Examples</strong> given are used for the system's internal purpose, and should be used by a user for <strong>Expected Output</strong> only. As it is a function problem, hence a user should not read any input from the stdin/console. The task is to complete the function specified, and not to write the full code.</p>
+<p><span style="font-size:18px"><strong>Note: </strong>The <strong>Input/Output</strong> format and <strong>Examples</strong> given are used for the system's internal purpose, and should be used by a user for <strong>Expected Output</strong> only. As it is a function problem, hence a user should not read any input from the stdin/console. The task is to complete the function specified, and not to write the full code.</span></p>
  <p></p>
             </div>
