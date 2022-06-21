@@ -114,7 +114,7 @@ class Solution
     {
         if(root==NULL)
             return;
-        bToDLL(root->left);
+        DLL(root->left);
         if(prev==NULL)
         {
             head=root;
@@ -126,7 +126,7 @@ class Solution
             root->left=prev;
         }
         prev=root;
-        bToDLL(root->right);
+        DLL(root->right);
     }
     
     //Function to convert binary tree to doubly linked list and return it.
