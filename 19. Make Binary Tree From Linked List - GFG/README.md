@@ -42,7 +42,7 @@ the above tree is 5 4 3 2 1.</span></pre>
 The task is to complete the function <strong>convert</strong>() which takes head of linked list and <strong>root </strong>of the tree as the reference. The driver code prints the level order.</span></p>
 
 <p><span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(N).<br>
-<strong>Expected Auxiliary Space:&nbsp;</strong>O(H).</span><br>
+<strong>Expected Auxiliary Space:&nbsp;</strong>O(N).</span><br>
 <span style="font-size:18px"><strong>Note: </strong>H is the height of the tree and this space is used implicitly for recursion stack.</span></p>
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
