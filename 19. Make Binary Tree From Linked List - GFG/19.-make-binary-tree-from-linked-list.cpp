@@ -112,27 +112,27 @@ struct TreeNode
 */
 
 //Function to make binary tree from linked list.
-void convert(Node *head, TreeNode *&node) {
-    node = new TreeNode(head->data);
-    TreeNode *root = node;
-    Node *curr = head->next;
-    queue <TreeNode*>q;
-
-    while(curr!=NULL)
+void convert(Node *head, TreeNode *&root) {
+    queue <TreeNode *>q;
+    Node *curr=head;
+    root = new TreeNode(curr->data);
+    q.push(root);
+    curr=curr->next;
+    while(q.empty()==false)
     {
-        if(curr!=NULL)
-        {
-            root->left = new TreeNode(curr->data);   
-            curr=curr->next;
-            q.push(root->left);
-        }
-        if(curr!=NULL)
-        {
-            root->right = new TreeNode(curr->data);
-            curr=curr->next;
-            q.push(root->right);
-        }
-        root = q.front();
+        TreeNode *temp = q.front();
         q.pop();
+        if(curr!=NULL)
+        {
+            temp->left = new TreeNode(curr->data);
+            q.push(temp->left);
+            curr=curr->next;
+            if(curr!=NULL)
+            {
+                temp->right = new TreeNode(curr->data);
+                q.push(temp->right);
+                curr=curr->next;
+            }
+        }
     }
 }
