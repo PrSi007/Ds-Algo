@@ -122,25 +122,35 @@ struct Node
     }
 };
  */
-
- int helper(Node *root,int &ans)
+ 
+ int minimum(Node *root,int &res)
  {
-    if(root==NULL)
-    return INT_MAX;
-    
+    int l,r;
     if(root->left==NULL&&root->right==NULL)
         return root->data;
-    
-    int l = helper(root->left,ans);
-    int r = helper(root->right,ans);
-    ans = max(ans,root->data-min(l,r));
+    else if(root->left==NULL)
+    {
+        l = INT_MAX;
+        r = minimum(root->right,res);
+    }    
+    else if(root->right==NULL)
+    {
+        r = INT_MAX;
+        l = minimum(root->left,res);
+    }
+    else
+    {
+        l = minimum(root->left,res);
+        r = minimum(root->right,res);
+    }
+    res = max(res,root->data-min(l,r));
     return min(root->data,min(l,r));
  }
 
 //Function to return the maximum difference between any node and its ancestor.
 int maxDiff(Node* root)
 {
-    int ans = INT_MIN;
-    helper(root,ans);
-    return ans;
+    int res=INT_MIN;
+    int temp = minimum(root,res);
+    return res;
 }
