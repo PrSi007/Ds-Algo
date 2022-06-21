@@ -97,19 +97,24 @@ and a pointer to right child */
 };
 */
 
-//Function to check whether a binary tree is foldable or not.
-bool helper(Node*n1,Node*n2){
-    
-    if(!n1 &&!n2) return true; 
-    if(!n1||!n2) return false;
-    
-    return helper(n1->left,n2->right) && helper(n1->right,n2->left);   
+bool foldable(Node *a,Node *b)
+{
+    if(a!=NULL&&b!=NULL)
+        return foldable(a->right,b->left)&&foldable(a->left,b->right);
+    if(a==NULL&&b==NULL)
+        return true;
+    if(a==NULL||b==NULL)
+        return false;
 }
+
+//Function to check whether a binary tree is foldable or not.
 
 bool IsFoldable(Node* root)
 { 
-    if(!root) return true; 
-    return helper(root->left,root->right);
+    if(root==NULL)
+        return true;
+    else
+        return foldable(root->left,root->right);
 }
 
 // { Driver Code Starts.
