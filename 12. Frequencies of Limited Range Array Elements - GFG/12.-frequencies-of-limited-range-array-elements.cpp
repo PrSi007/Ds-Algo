@@ -8,18 +8,25 @@ class Solution{
     //Function to count the frequency of all elements from 1 to N in the array.
     void frequencyCount(vector<int>& a,int n, int P)
     { 
-        int t[n]={0},i;
+        int i;
         for(i=0;i<n;i++)
+        {
             a[i]--;
+            a.push_back(0);
+        }
         
         for(i=0;i<n;i++)
         {
             if(a[i]<n)
-                t[a[i]]++;
-        }     
+                a[n+a[i]]++;
+        }
         
         for(i=0;i<n;i++)
-            a[i]=t[i];
+            a[i]=a[n+i];
+        
+        for(i=0;i<n;i++)
+        a.pop_back();
+        
     }
 };
 
