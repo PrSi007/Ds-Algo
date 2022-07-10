@@ -109,7 +109,7 @@ public:
             return root->data + l;
         } else {
             ans = max(ans, l + r + root->data);
-            return max({root->data + l, root->data + r});
+            return max(root->data + l, root->data + r);
         }
     }
     int maxPathSum(Node* root)
@@ -120,7 +120,7 @@ public:
         
         int sm = root->data + (l == INT_MIN ? 0 : l) + (r == INT_MIN ? 0 : r);
         
-        return max({sm, lMax, rMax});
+        return max(sm,max(lMax, rMax));
     }
 };
 
