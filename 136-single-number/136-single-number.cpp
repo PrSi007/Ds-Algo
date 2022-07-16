@@ -1,10 +1,16 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        int ans=0;
-        for(int i=0;i<nums.size();i++)
-            ans^=nums[i];
+        int i;
+        sort(nums.begin(),nums.end());
+        for(i=0;i<nums.size()-1;i++)
+        {
+            if(nums[i]!=nums[i+1])
+                break;
+            else
+                i++;
+        }
         
-        return ans;
+        return nums[i];
     }
 };
